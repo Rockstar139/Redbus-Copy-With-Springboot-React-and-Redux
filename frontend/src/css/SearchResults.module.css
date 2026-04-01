@@ -1,0 +1,38 @@
+.outerWrapper{
+   padding-top: 1em;
+    background-color: rgb(242, 242, 242);
+}
+.innerWrapper{
+    max-width: 1248px;
+    min-height: 100vh;
+    display: flex;
+    gap: 0em;
+    margin: auto;
+}
+
+.leftWrapper{
+    width: 19rem;
+    background-color: #fff;
+    border-radius: 24px;
+    margin-left: 1em;
+}
+
+.rightWrapper{
+    width: 26rem;
+    /* background-color: #fff; */
+    border-radius: 24px;
+}
+
+.filterWrapper{
+    height: 3em;
+    align-content: center;
+    margin: auto;
+    /* padding: 0 1em; */
+}
+
+.filter:hover{
+    font-weight: 700;
+}
+
+
+

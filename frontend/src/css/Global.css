@@ -1,0 +1,72 @@
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: none;
+}
+body{
+    color: #4a4a4a;
+    height: 100%;
+    overflow-y: scroll;
+    word-break: break-word;
+    font-size: 15px;
+    font-weight: 400;
+}
+.bold{
+  font-weight: 700;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 101;
+}
+
+.bgWhite{
+    background-color: #fff;
+}
+
+.borderRadius24{
+    border-radius: 24px;
+}
+
+.displayFlex{
+  display: flex;
+}
+/* bold classes */
+.bold400{
+  font-weight: 400;
+}
+.bold500{
+  font-weight: 500;
+}
+.bold600{
+  font-weight: 600;
+}
+.bold700{
+  font-weight: 700;
+}
+.bold800{
+  font-weight: 800;
+}
+.bold900{
+  font-weight: 900;
+}
+
+.pointer{
+    cursor: pointer;
+}
+.textAlignRight{
+  text-align: right;
+}
+.textAlignCenter{
+  text-align: center;
+}
+.textAlignLeft{
+  text-align: left;
+}

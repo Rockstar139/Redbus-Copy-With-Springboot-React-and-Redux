@@ -1,0 +1,91 @@
+
+.innerWrapper{
+    padding: 1em;
+   
+}
+
+.outerWrapper{
+    width: 100%;
+    height: 12em;
+     margin: 1em auto;
+}
+
+.badge{
+    height: 2em;
+    font-size: 12px;
+    background: linear-gradient(to right, #b3c7f4, #b3c7f4);
+    font: black;
+    margin-bottom: 1em;
+}
+
+.desc{
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .01px;
+    line-height: 1rem;
+}
+
+.departureTime{
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+}
+.arrivalTime{
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+}
+.duration{
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .01px;
+    line-height: 1rem;
+}
+
+.singleSeatsFree{
+    color:chocolate;
+}
+
+.price{
+    font-size: 1rem;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+}
+
+hr{
+  color: #b4a4a4;
+  margin: 0.5em;
+}
+
+.tag{
+    height: 2em;
+    font-size: 12px;
+    background: linear-gradient(to right, #b3c7f4, #b3c7f4);
+    font: black;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+.btn{
+    width: 12.75rem;
+    font-size: 1rem;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+    background-color:#d63941;
+    color: #fdfdfd;
+    align-items: center;
+    border-radius: 999px;
+    display: flex;
+    gap: .25rem;
+    height: 3rem;
+    justify-content: center;
+    font-weight: 700;
+    white-space: nowrap;
+    border: none;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%); */
+}

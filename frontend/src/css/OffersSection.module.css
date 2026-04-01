@@ -1,0 +1,75 @@
+.offerMain {
+  max-width: 1248px;
+  width: 90%;
+  margin: auto;
+}
+.offerTitleDiv {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 1.75rem;
+  margin: 0;
+}
+
+.selectionDiv {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 1rem;
+}
+
+.selectedBtn {
+  background-color: #fed9d5;
+}
+
+.cardCarousel {
+  display: flex;
+  gap: 0.75rem;
+  list-style: none;
+  overflow-x: scroll;
+  padding: 0.5rem 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+/* css for scroll carousel */
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.scrollBtn {
+  background: linear-gradient(to right, rgba(0,0,0,0.6), transparent);
+}
+
+/* Left button */
+.scrollBtn.left {
+  left: 0;
+}
+
+/* Right button */
+.scrollBtn.right {
+  right: 0;
+}
+
+.sliderContainer{
+    position: relative;
+}

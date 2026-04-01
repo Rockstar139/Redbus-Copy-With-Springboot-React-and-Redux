@@ -1,0 +1,14 @@
+.wrapper{
+    background-color: #d84f57;
+    width: 100%;
+    color: #fff;
+    padding: 40px 100px;
+    min-height: 500px;
+    align-content: center;
+    text-align: center;
+}
+
+.redTitle{
+    font-size: 48px;
+    font-weight: 700;
+}

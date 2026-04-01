@@ -1,0 +1,18 @@
+.spinner{
+  margin:auto;
+  align-content: center;
+  min-height: 30vh;
+  background-color: #fff;
+  margin: 2em;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* 👈 translucency */
+  z-index: 200;
+  display:flex;
+}

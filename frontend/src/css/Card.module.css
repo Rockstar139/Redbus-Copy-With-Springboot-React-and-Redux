@@ -1,0 +1,72 @@
+.cardWidth {
+  min-width: 18.5rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  position: relative;
+  height: 12.5rem;
+}
+
+.cardHeight{
+  height: 12.5rem;
+}
+
+.cardHeightNew{
+  height: 10rem;
+}
+
+
+
+.cardTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.18px;
+  line-height: 1.5rem;
+}
+
+.cardValidity {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.01px;
+  line-height: 1rem;
+  margin-top: 0.75rem;
+}
+
+.offerIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.offerBtn {
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.09px;
+  line-height: 1.25rem;
+  outline: none;
+  padding: 0.25rem 0.45rem;
+  white-space: nowrap;
+  border-radius: 999px;
+}
+
+.offerBtnDiv {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 3rem;
+  padding: 0.25rem 0;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+
+}
+
+.displayNone{
+  display: none;
+}
+

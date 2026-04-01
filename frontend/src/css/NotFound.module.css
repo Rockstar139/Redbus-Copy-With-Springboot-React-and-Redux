@@ -1,0 +1,18 @@
+.wrapper{
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: rgb(242, 242, 242);
+    text-align: center;
+    margin: auto;
+
+}
+
+.gap{
+    height: 2rem;
+    max-width: 100%;
+}
+
+.imgContainer{
+    height: 13rem;
+    
+}

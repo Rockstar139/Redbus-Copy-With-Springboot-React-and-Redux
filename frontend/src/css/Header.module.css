@@ -1,0 +1,156 @@
+header {
+    font-family: Inter, sans-serif;
+}
+
+.header {
+    display: block;
+    unicode-bidi: isolate;
+    top: 0;
+    --csstools-light-dark-toggle--0: var(--csstools-color-scheme--light) #18181b;
+    background-color: #fff;
+    background-color: var(--background-base, var(--csstools-light-dark-toggle--0, #fff));
+    background-color: light-dark(#fff, #18181b);
+    z-index: 102;
+    --csstools-light-dark-toggle--1: var(--csstools-color-scheme--light) #4b4b4b;
+    border-bottom: 1px solid light-dark(#e6e6e6, #4b4b4b);
+}
+
+.headerSticky{
+    position: sticky;
+}
+
+.header_div{
+    align-items: center;
+    display: flex;
+    margin: auto;
+    max-width: 1280px;
+    min-height: 4rem;
+    padding: .5rem 1rem 0;
+    justify-content: start;
+    padding: 0 2rem;
+    padding:0px 32px;
+}
+.redbusLogo{
+        cursor: pointer;
+        display: block;
+        margin-right: 2rem;
+        width: 3.5rem;
+}
+.lSection{
+    display: flex;
+    flex: 1;
+}
+.ulLeft{
+    display: flex;
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.liLeft{
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    unicode-bidi: isolate;
+    flex:none
+}
+.aLeft{
+    flex: none;
+    height: 4rem;
+    justify-content: center;
+    margin-right: 1rem;
+    width: 6.625rem;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+
+
+
+
+.rightSection{
+    display: flex;
+    gap: 1.25rem;
+    margin-left: auto;
+}
+.rSection{
+    display: flex;
+    gap: 1.25rem;
+    margin-left: auto;
+}
+.ulRight{
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navItem{
+    display: flex;
+}
+
+.navOption{
+        height: 3rem;
+        --csstools-light-dark-toggle--8: var(--csstools-color-scheme--light) #fdfdfd;
+        align-items: center;
+        color: #1d1d1d;
+        color: var(--text-primary, var(--csstools-light-dark-toggle--8, #1d1d1d));
+        color: light-dark(#1d1d1d, #fdfdfd);
+        cursor: pointer;
+        display: flex;
+        font-size: .75rem;
+        font-weight: 500;
+        gap: .25rem;
+        letter-spacing: .5px;
+        line-height: 1rem;
+        padding: 0 .5rem;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+}
+
+.navRIcon{
+    display: inline-block;
+    flex-shrink: 0;
+    height: 1.4rem;
+    overflow: hidden;
+    width: 1.4rem;
+}
+
+.imgText{
+    color: #d63941;
+    font-size: .75rem;
+    font-weight: 500;
+    height: auto;
+    letter-spacing: .05px;
+    line-height: 1rem;
+}
+.imgBlackText{
+    filter: grayscale(1) brightness(0);
+    color: #d63941;
+    font-size: .75rem;
+    font-weight: 500;
+    height: auto;
+    letter-spacing: .05px;
+    line-height: 1rem;
+}
+
+.imgBlackIcon {
+  filter: grayscale(1) brightness(0);
+    height: 2rem;
+    width: 40px;
+}
+.imgIcon{
+    height: 2rem;
+    width: 40px;
+}

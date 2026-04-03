@@ -23,13 +23,15 @@ const SearchHome = () => {
   const dispatch = useDispatch();
 
   // //Setting max date in date picker
+  const today = formatDateYYYYMMDD(new Date());
   const maxDate = new Date();
+  const oldDate = localSearchValue?.dateOfJourney ?? today;
   maxDate.setMonth(maxDate.getMonth() + config.maxNoOfMonths);
 
   const [isTxtFrom, setIsTxtFrom] = useState(false);
   const [isTxtTo, setIsTxtTo] = useState(false);
   const [isDateOfJourney, setIsDateOfJourney] = useState(false);
-  const [newDate, setDate] = useState(localSearchValue.dateOfJourney);
+  const [newDate, setDate] = useState(oldDate > today ? oldDate : today);
 
   //Reference variables for txtFrom, txtTo and dateOfJourney
   const txtFrom = useRef();
@@ -98,7 +100,7 @@ const SearchHome = () => {
                       id="txtFrom"
                       placeholder="From"
                       ref={txtFrom}
-                      defaultValue={localSearchValue.txtFrom || ""}
+                      defaultValue={localSearchValue?.txtFrom || ""}
                     />
                     <label htmlFor="txtFrom" className={styles.controlLabel}>
                       <FaBus /> From
@@ -113,7 +115,7 @@ const SearchHome = () => {
                       id="txtTo"
                       placeholder="To"
                       ref={txtTo}
-                      defaultValue={localSearchValue.txtTo || ""}
+                      defaultValue={localSearchValue?.txtTo || ""}
                     />
                     <label htmlFor="txtTo" className={styles.controlLabel}>
                       <FaBus /> To

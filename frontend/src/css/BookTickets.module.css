@@ -1,0 +1,141 @@
+.outerWrapper {
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+  min-height: 25rem;
+  padding: 1rem;
+  
+}
+
+.innerWrapper {
+  padding: 2rem;
+  width: 1248px;
+  background-color: #fff;
+  height: 25rem; 
+  margin:auto;
+  border-radius: 24px;
+}
+
+
+
+.badge{
+    height: 2em;
+    font-size: 12px;
+    background: linear-gradient(to right, #b3c7f4, #b3c7f4);
+    font: black;
+    margin-bottom: 1em;
+}
+
+.desc{
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .01px;
+    line-height: 1rem;
+}
+
+.departureTime{
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+}
+.arrivalTime{
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+}
+.duration{
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .01px;
+    line-height: 1rem;
+}
+
+.singleSeatsFree{
+    color:chocolate;
+}
+
+.price{
+    font-size: 1rem;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+}
+
+hr{
+  color: #b4a4a4;
+  margin: 0.5em;
+}
+
+.tag{
+    height: 2em;
+    font-size: 12px;
+    background: linear-gradient(to right, #b3c7f4, #b3c7f4);
+    font: black;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+.btn{
+    width: 12.75rem;
+    font-size: 1rem;
+    letter-spacing: -.18px;
+    line-height: 1.5rem;
+    background-color:#d63941;
+    color: #fdfdfd;
+    align-items: center;
+    border-radius: 999px;
+    display: flex;
+    gap: .25rem;
+    height: 3rem;
+    justify-content: center;
+    font-weight: 700;
+    white-space: nowrap;
+    border: none;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%); */
+}
+
+.lowerDiv{
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .25rem;
+    justify-content: center;
+    background-color: var(--fill-success-tertiary, light-dark(#e2eee3, #243926));
+    height: 4rem;
+}
+
+.upperDiv{
+    background: var(--fill-success-secondary, light-dark(#adf2b3, #1a4221));
+    padding: 0.2rem 0.4rem;
+}
+.outerDivWrapper{
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .078), 0 4px 8px rgba(0, 0, 0, .078);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 92px;
+    overflow: hidden;
+    position: relative;
+    width: 133px;
+    z-index: 2;
+}
+
+.space{
+    margin: 1rem;
+    display: flex;
+    column-gap: 1rem;
+}
+
+.spanLeft{
+    text-align: left;
+}
+
+.spanRight{
+    text-align: right;
+
+}

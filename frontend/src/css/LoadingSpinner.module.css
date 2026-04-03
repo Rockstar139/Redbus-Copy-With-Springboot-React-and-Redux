@@ -1,9 +1,12 @@
 .spinner{
   margin:auto;
   align-content: center;
-  min-height: 30vh;
   background-color: #fff;
   margin: 2em;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+
 }
 
 .overlay {

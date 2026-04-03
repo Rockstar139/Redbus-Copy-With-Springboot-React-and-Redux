@@ -1,9 +1,10 @@
 import styles from "../css/SearchResultCard.module.css";
 import { FaBus } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router";
+
 
 const SearchResultCard = ({ result }) => {
-  const handleBooking = () => {};
   return (
     <>
       <div className={`bgWhite borderRadius24  ${styles.outerWrapper}`}>
@@ -67,9 +68,9 @@ const SearchResultCard = ({ result }) => {
             </div>
             <div className="col-4 textAlignRight" >
                 <div style={{float:"right"}}>
-              <button className={`${styles.btn} `} onClick={handleBooking}>
+              <Link to={`/book-tickets/${result.id}`} className={`${styles.btn} `}>
                 Book Ticket
-              </button>
+              </Link>
               </div>
             </div>
           </div>

@@ -1,21 +1,230 @@
-.outerWrapper {
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.outerWrapper{
   width: 100%;
-  background-color: rgb(242, 242, 242);
-  min-height: 70vh;
-    text-align: center;
-    display: flex;
+  background-color: #f8f9fa;
 }
 
-.innerWrapper {
-  width: 560px;
-  padding: 40px 40px;
+.accountContainer {
+  display: flex;
+  max-width: 1248px;
   margin: auto;
-  height: 100%;
+  min-height: calc(100vh - 80px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+  width: 15rem;
   background-color: #fff;
+  border-right: 1px solid #dee2e6;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
   border-radius: 24px;
 }
 
-.title {
-  margin-bottom: 0.5em
-
+.userHeader {
+  padding: 2rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  background-color: #d84e55;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: auto;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+}
+
+.menu li {
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: #444;
+}
+
+.menu li:hover {
+  background-color: #f1f3f5;
+  color: #d84e55;
+}
+
+.menu li.active {
+  background-color: #fff5f5;
+  color: #d84e55;
+  border-right: 4px solid #d84e55;
+}
+
+.menu li.logout {
+  margin-top: auto;
+  color: #888;
+}
+
+.menu li.logout:hover {
+  color: #d84e55;
+}
+
+.contentArea {
+  flex: 1;
+  /* padding: 4rem; */
+  margin: 1rem;
+  overflow-y: auto;
+}
+
+.section {
+  background: white;
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 100%;
+}
+
+.section h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #f1f3f5;
+  padding-bottom: 10px;
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+.formGroup input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.formGroup input:disabled {
+  background-color: #f1f3f5;
+  cursor: not-allowed;
+}
+
+.saveBtn {
+  background-color: #d84e55;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.saveBtn:hover {
+  background-color: #c13d44;
+}
+
+/* Item Card Styles */
+.itemCard {
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemInfo p {
+  margin: 5px 0;
+}
+
+.cancelBtn {
+  background-color: white;
+  color: #d84e55;
+  border: 1px solid #d84e55;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancelBtn:hover {
+  background-color: #fff5f5;
+}
+
+/* Wallet Styles */
+.walletCard {
+  background: linear-gradient(135deg, #d84e55 0%, #a52a2a 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.walletCard h2 {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.addMoneyBtn {
+  margin-top: 20px;
+  background: white;
+  color: #d84e55;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Status colors */
+.booked { color: #28a745; font-weight: bold; }
+.cancelled { color: #dc3545; font-weight: bold; }
+.refund { color: #17a2b8; font-weight: bold; }
+.booking { color: #007bff; font-weight: bold; }
+.wallet_load { color: #ffc107; font-weight: bold; }

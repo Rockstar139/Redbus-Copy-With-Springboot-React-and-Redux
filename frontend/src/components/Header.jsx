@@ -2,16 +2,21 @@ import styles from "../css/Header.module.css";
 import { FaList } from "react-icons/fa";
 import { IoHelpCircleOutline } from "react-icons/io5";
 import { RiAccountCircleLine } from "react-icons/ri";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import config from "../config";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   const page = config.getPath();
   let prevPage = useSelector(store=>store.prevPage);
   prevPage = (page=="bus"|| page=="train")?page:prevPage;
+
+  const goToBooking = () => {
+    navigate("/account", { state: { activeTab: "bookings" } });
+  }
   
   return (
     <header className={[styles.header, page!= "search"?styles.headerSticky:""].join(" ")}>
@@ -71,10 +76,10 @@ const Header = () => {
         <div className={styles.rSection} role="navigation" aria-label="Primary">
           <ul className={styles.ulRight}>
             <li className={styles.navItem}>
-              <Link to="/" className={styles.navOption} aria-label="Bookings">
+              <div className={styles.navOption} aria-label="Bookings" onClick={goToBooking}>
                 <FaList className={styles.navRIcon} />
                 Bookings
-              </Link>
+              </div>
             </li>
             <li className={styles.navItem}>
               <Link to="/help" className={styles.navOption} aria-label="Help">

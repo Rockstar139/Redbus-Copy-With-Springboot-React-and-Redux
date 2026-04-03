@@ -3,6 +3,7 @@ package copy.redbus.backend.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import copy.redbus.backend.entity.TransportResult;
+import jakarta.persistence.Id;
 import copy.redbus.backend.entity.OfferType;
 import java.time.LocalDate;
 import java.util.List;

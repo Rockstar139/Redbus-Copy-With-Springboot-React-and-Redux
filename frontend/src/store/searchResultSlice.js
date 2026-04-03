@@ -8,6 +8,11 @@ const searchResultSlice = createSlice({
   reducers: {
     setResults: (state, action) => {
       state.data = action.payload;
+    },
+    setResult: (state, action) => {
+      return {
+        data: [action.payload],
+      };
     }
   },
 });

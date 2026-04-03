@@ -58,6 +58,16 @@ export const loginDefaultsSlice = createSlice({
   },
 });
 
+export const redirectToPageSlice = createSlice({
+  name: "redirectToPage",
+  initialState: "",
+  reducers: {
+    setValue: (state, action) => action.payload,
+    resetValue: () => "",
+  },
+});
+
+export const redirectToPageActions = redirectToPageSlice.actions;
 export const loadingStateActions = loadingStateSlice.actions;
 export const busStateActions = busStateSlice.actions;
 export const trainStateActions = trainStateSlice.actions;

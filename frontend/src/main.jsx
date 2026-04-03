@@ -12,6 +12,10 @@ import Offers from "./routes/Offers.jsx";
 import Search from "./routes/Search.jsx";
 import { PersistGate } from "redux-persist/integration/react";
 import Account from "./routes/Account.jsx";
+import Login from "./routes/Login.jsx";
+import Register from "./routes/Register.jsx";
+import CommonNotFound from "./components/CommonNotFound.jsx";
+import BookTickets from "./components/BookTickets.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +27,11 @@ const router = createBrowserRouter([
       {path:"/offers", element:<Offers/>},
       {path:"/train", element:<Home/>},
       {path:"/search", element:<Search/>},
-      {path:"/account", element:<Account/>}
+      {path:"/account", element:<Account/>},
+      {path:"/login", element:<Login/>},
+      {path:"/register", element:<Register/>},
+      {path:"*", element:<CommonNotFound/>},
+      {path:"/book-tickets/:transportId", element:<BookTickets/>}
     ]
   },
 ]);

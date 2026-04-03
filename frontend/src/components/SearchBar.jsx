@@ -19,6 +19,8 @@ const SearchBar = ({noOfResults,search,localSearchValue,page}) => {
   const dispatch = useDispatch();
 
   //Setting min and max date in date picker
+  const today = formatDateYYYYMMDD(new Date());
+  const oldDate = localSearchValue?.dateOfJourney ?? today;
   const maxDate = new Date();
   maxDate.setMonth(maxDate.getMonth() + 2);
 
@@ -30,7 +32,7 @@ const SearchBar = ({noOfResults,search,localSearchValue,page}) => {
   const [isTxtFrom, setIsTxtFrom] = useState(false);
   const [isTxtTo, setIsTxtTo] = useState(false);
   const [isDateOfJourney, setIsDateOfJourney] = useState(false);
-  const [newDate, setDate] = useState(localSearchValue.dateOfJourney);
+  const [newDate, setDate] = useState(oldDate > today ? oldDate : today);
 
   //Reference variables for txtFrom, txtTo and dateOfJourney
   const txtFrom = useRef();

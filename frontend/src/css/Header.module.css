@@ -119,6 +119,10 @@ header {
         text-decoration: none;
 }
 
+.navOptionDiv{
+    cursor: pointer;
+}
+
 .navRIcon{
     display: inline-block;
     flex-shrink: 0;

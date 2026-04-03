@@ -25,3 +25,25 @@
   background-color: #d63941;
   border-color: #d63941;
 }
+
+.outerWrapper {
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+  min-height: 70vh;
+    text-align: center;
+    display: flex;
+}
+
+.innerWrapper {
+  width: 560px;
+  padding: 40px 40px;
+  margin: auto;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 24px;
+}
+
+.title {
+  margin-bottom: 0.5em
+
+}

@@ -8,11 +8,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAppContent } from "../store/thunks";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { redirectToPageActions } from "../store/stateSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
   const loading = useSelector((store) => store.loading);
-
+  dispatch(redirectToPageActions.resetValue());
 
   useEffect(() => {
     dispatch(fetchAppContent());

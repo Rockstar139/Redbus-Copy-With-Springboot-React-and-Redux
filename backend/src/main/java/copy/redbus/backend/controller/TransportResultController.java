@@ -3,11 +3,13 @@ package copy.redbus.backend.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 
+import copy.redbus.backend.entity.TransportResult;
 import copy.redbus.backend.service.TransportResultService;
 
 @RestController
@@ -39,5 +41,14 @@ public class TransportResultController {
     @GetMapping("getAll")
     public ResponseEntity<?> getTransportReultsAll(){
         return new ResponseEntity<>(transportResultService.getAllResults(),HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getTransportResultById(@PathVariable Long id){
+        TransportResult response = transportResultService.getResultById(id);
+        if(response == null){
+            return ResponseEntity.notFound().build();
+        }   
+        return ResponseEntity.ok(response);
     }
 }

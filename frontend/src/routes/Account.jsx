@@ -132,7 +132,7 @@ const Account = () => {
                         {b.trip.fromLocation} to {b.trip.toLocation})
                       </p>
                       <p>
-                        Booking Date : {formatDateYYYYMMDD(b.bookingDate)} | Trip Date : {b.trip.journeyDate} | Status:{" "}
+                        Trip Date : {b.trip.journeyDate} | Booking Date : {formatDateYYYYMMDD(b.bookingDate)} | Status:{" "}
                         <span className={styles[b.status.toLowerCase()]}>
                           {b.status}
                         </span>

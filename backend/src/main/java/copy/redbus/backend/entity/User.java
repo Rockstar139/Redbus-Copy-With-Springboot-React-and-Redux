@@ -26,6 +26,9 @@ public class User {
     private String name;
     private Integer age;
 
+    @Column(name = "profile_pic_path")
+    private String profilePicPath;
+
     @Column(name = "wallet_balance")
     private java.math.BigDecimal walletBalance = java.math.BigDecimal.ZERO;
 }

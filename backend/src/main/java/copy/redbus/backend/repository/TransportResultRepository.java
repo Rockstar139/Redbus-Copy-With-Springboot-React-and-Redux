@@ -10,10 +10,16 @@ import java.util.List;
 
 @Repository
 public interface TransportResultRepository extends JpaRepository<TransportResult, Long> {
-    List<TransportResult> findByTypeAndFromLocationAndToLocationAndJourneyDate(
-        OfferType type, 
-        String fromLocation, 
-        String toLocation, 
-        LocalDate journeyDate
-    );
+    // List<TransportResult> findByTypeAndFromLocationAndToLocationAndJourneyDate(
+    // OfferType type,
+    // String fromLocation,
+    // String toLocation,
+    // LocalDate journeyDate
+    // );
+    List<TransportResult> findByNoOfSingleSeatsFreeGreaterThanAndTypeAndFromLocationAndToLocationAndJourneyDate(
+            Long noOfSingleSeatsFree,
+            OfferType type,
+            String fromLocation,
+            String toLocation,
+            LocalDate journeyDate);
 }

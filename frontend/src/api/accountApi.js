@@ -48,3 +48,17 @@ export const updateProfileApi = async (authToken, name, age) => {
   });
   return handleResponse(response);
 };
+
+// API call to book a ticket for a transport
+export const bookTicketApi = async (authToken, transportId) => {
+  const response = await fetch(`${BASE_URL}/book-tickets/book`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ transportId }),
+  });
+  return handleResponse(response);
+};
+

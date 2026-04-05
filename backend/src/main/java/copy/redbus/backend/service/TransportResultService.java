@@ -16,18 +16,20 @@ import copy.redbus.backend.repository.TransportResultRepository;
 public class TransportResultService {
     // private final TransportResultRepository transportResultRepository;
 
-    // public TransportResultService(TransportResultRepository transportResultRepository){
-    //     this.transportResultRepository = transportResultRepository;
+    // public TransportResultService(TransportResultRepository
+    // transportResultRepository){
+    // this.transportResultRepository = transportResultRepository;
     // }
 
     @Autowired
     private TransportResultRepository transportResultRepository;
 
-    public List<TransportResult> getResults(String type, String from, String to, LocalDate date){
+    public List<TransportResult> getResults(String type, String from, String to, LocalDate date) {
         try {
             OfferType offerType = OfferType.valueOf(type.toUpperCase());
-            return transportResultRepository.findByTypeAndFromLocationAndToLocationAndJourneyDate(
-                offerType, from, to, date);
+            return transportResultRepository
+                    .findByNoOfSingleSeatsFreeGreaterThanAndTypeAndFromLocationAndToLocationAndJourneyDate(0l,
+                            offerType, from, to, date);
         } catch (Exception e) {
             // If invalid type or missing params, return empty or all as fallback
             // For now, returning empty to be strict
@@ -35,11 +37,11 @@ public class TransportResultService {
         }
     }
 
-    public List<TransportResult> getAllResults(){
+    public List<TransportResult> getAllResults() {
         return transportResultRepository.findAll();
     }
 
-    public TransportResult getResultById(Long id){
-       return transportResultRepository.findById(id).orElse(null);
+    public TransportResult getResultById(Long id) {
+        return transportResultRepository.findById(id).orElse(null);
     }
 }

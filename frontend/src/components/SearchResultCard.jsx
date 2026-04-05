@@ -41,9 +41,8 @@ const SearchResultCard = ({ result }) => {
               </div>
               <span className={styles.desc}>
                 {result.duration}{" "}
-                {result.noOfSingleSeatsFree + result.noOfSleepersFree} Seats{" "}
                 <span className={styles.singleSeatsFree}>
-                  ({result.noOfSingleSeatsFree} Single)
+                  ({result.noOfSingleSeatsFree} Available)
                 </span>
               </span>
             </div>

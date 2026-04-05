@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -72,5 +73,11 @@ public class AccountController {
         BigDecimal amount = new BigDecimal(payload.get("amount").toString());
         User user = accountService.addWalletBalance(username, amount);
         return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/upload-image")
+    public ResponseEntity<?> uploadImage(Authentication authentication,@RequestParam("file") MultipartFile file) {
+        String username = authentication.getName();
+        return accountService.uploadImage(username, file);
     }
 }

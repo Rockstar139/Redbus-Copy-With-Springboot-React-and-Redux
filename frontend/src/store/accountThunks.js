@@ -1,7 +1,37 @@
 import { loadingStateActions } from "./stateSlice";
-import { cancelBookingApi, fetchBookingsApi, fetchProfileApi, fetchTransactionsApi, updateProfileApi } from "../api/accountApi";
-import { bookingsActions, profileActions, transactionsActions } from "./accountSlice";
+import {
+  bookTicketApi,
+  cancelBookingApi,
+  fetchBookingsApi,
+  fetchProfileApi,
+  fetchTransactionsApi,
+  updateProfileApi,
+} from "../api/accountApi";
+import {
+  bookingsActions,
+  profileActions,
+  transactionsActions,
+} from "./accountSlice";
 import { authActions } from "./authSlice";
+
+// Thunk to book a ticket
+export const bookTicket = (authToken, transportId) => async (dispatch) => {
+  try {
+    dispatch(loadingStateActions.setLoading(true));
+    // Call API to book the ticket
+    await bookTicketApi(authToken, transportId);
+    // After booking, refresh profile and bookings to show updated wallet balance and new booking
+    await dispatch(fetchProfile(authToken));
+    await dispatch(fetchBookings(authToken));
+    return { success: true };
+  } catch (error) {
+    console.error(error, "Account|Book Ticket Error");
+    // Return the error message to be handled in the component
+    return { success: false, message: error.message || "Failed to book ticket." };
+  } finally {
+    dispatch(loadingStateActions.setLoading(false));
+  }
+};
 
 // fetchProfile Thunk
 export const fetchProfile = (authToken) => async (dispatch) => {

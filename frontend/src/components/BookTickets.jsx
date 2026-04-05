@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { redirectToPageActions } from "../store/stateSlice";
 import { fetchResultbyId } from "../store/thunks";
+import { bookTicket, fetchProfile } from "../store/accountThunks";
 import LoadingSpinner from "./LoadingSpinner";
-import { FaBus } from "react-icons/fa";
+import { FaBus, FaWallet } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
 const BookTickets = () => {
@@ -15,26 +16,45 @@ const BookTickets = () => {
 
   const auth = useSelector((store) => store.auth);
   const loading = useSelector((store) => store.loading);
-  const prevPage = useSelector((store) => store.prevPage);
   const data = useSelector((store) => store.results.data);
+  const profile = useSelector((store) => store.profile);
   const [result, setResult] = useState(data[0]);
-  console.log("result", result);
+  const [error, setError] = useState(null);
+
+  console.log(profile);
 
   useEffect(() => {
+    // If user is not authenticated, redirect to login page
     if (!auth.isAuthenticated) {
       dispatch(redirectToPageActions.setValue("book-tickets"));
       navigate("/login");
     } else {
+      // Fetch result details and profile when component mounts
       dispatch(fetchResultbyId(transportId));
+      dispatch(fetchProfile(auth.token));
     }
-  }, [auth, transportId, navigate]);
+  }, [auth, transportId, navigate, dispatch]);
 
   useEffect(() => {
-    setResult(data[0]);
-    console.log("updated data", data[0]);
+    // Update result state when data changes
+    if (data && data.length > 0) {
+      setResult(data[0]);
+    }
   }, [data]);
 
-  const handleBooking = () => {};
+  const handleBooking = async () => {
+    setError(null);
+    // Call the bookTicket thunk to book the ticket
+    const response = await dispatch(bookTicket(auth.token, transportId));
+    if (response.success) {
+      // Redirect to account bookings page on success
+      alert("Ticket booked successfully!")
+      navigate("/account", { state: { activeTab: "bookings" } });
+    } else {
+      // Set error message if booking fails (e.g., insufficient balance)
+      setError(response.message);
+    }
+  };
 
   return (
     <>
@@ -43,6 +63,31 @@ const BookTickets = () => {
       ) : (
         <div className={`bgWhite borderRadius24 ${styles.outerWrapper}`}>
           <div className={styles.innerWrapper}>
+            {/* Display Wallet Balance */}
+            <div className="row mb-3">
+              <div className="col-12 d-flex justify-content-end">
+                <div className="badge text-bg-info p-2">
+                  <FaWallet className="me-2" />
+                  Wallet Balance: ₹{profile?.walletBalance || 0}
+                </div>
+              </div>
+            </div>
+
+            {/* Display Error Message if booking fails */}
+            {error && (
+              <div className="alert alert-danger mb-3" role="alert">
+                {error}
+                {error.includes("recharge") && (
+                  <button 
+                    className="btn btn-sm btn-link" 
+                    onClick={() => navigate("/account?tab=wallet")}
+                  >
+                    Go to Wallet to Recharge
+                  </button>
+                )}
+              </div>
+            )}
+
             <div className="row">
               <div className="col-12">
                 <span className={`badge text-bg-secondary ${styles.badge}`}>
@@ -79,13 +124,10 @@ const BookTickets = () => {
                   </span>
                 </div>
                 <span className={styles.desc}>
-                  {result?.duration || ""}{" "}
-                  {result?.noOfSingleSeatsFree ||
-                    "" + result?.noOfSleepersFree ||
-                    ""}{" "}
-                  Seats{" "}
+                  {result?.duration || ""}  
+                  
                   <span className={styles.singleSeatsFree}>
-                    ({result?.noOfSingleSeatsFree || ""} Single)
+                     ({result?.noOfSingleSeatsFree || ""} Available)
                   </span>
                 </span>
               </div>
@@ -98,39 +140,27 @@ const BookTickets = () => {
             <div className="row">
               {" "}
               <div className="col-8">
-                {result?.tags.length > 0
-                  ? JSON.parse(result?.tags || [])
+                {result?.tags && result.tags.length > 0
+                  ? JSON.parse(result?.tags || "[]")
                       .slice(0, 4)
-                      .map((result) => (
+                      .map((tag) => (
                         <span
-                          key={result}
+                          key={tag}
                           className={`badge text-bg-secondary ${styles.tag}`}
                         >
-                          {result}
+                          {tag}
                         </span>
                       ))
                   : ""}
               </div>
             </div>
             <div className="row">
-              <div className={`col-12 ${styles.space}`}>
+              <div className={`col-8 ${styles.space}`}>
                 <div className={`${styles.outerDivWrapper}`}>
                   <div className={`${styles.innerDivWrapper}`}>
                     <div className={`row ${styles.upperDiv}`}>
-                      <span className={`col-6 ${styles.spanLeft}`}>SL</span>
-                      <span className={`col-6 ${styles.spanRight}`}>₹750</span>
-                    </div>
-                    <div className={`${styles.lowerDiv}`}>
-                      <span>Available {result?.noOfSingleSeatsFree || ""}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={`${styles.outerDivWrapper}`}>
-                  <div className={`${styles.innerDivWrapper}`}>
-                    <div className={`row ${styles.upperDiv}`}>
-                      <span className={`col-6 ${styles.spanLeft}`}>SL</span>
-                      <span className={`col-6 ${styles.spanRight}`}>₹750</span>
+                      <span className={`col-4 ${styles.spanLeft}`}>SL</span>
+                      <span className={`col-8 ${styles.spanRight}`}>₹{result?.price || ""}</span>
                     </div>
                     <div className={`${styles.lowerDiv}`}>
                       <span>Available {result?.noOfSingleSeatsFree || ""}</span>
@@ -138,13 +168,10 @@ const BookTickets = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="row">
-              {" "}
-              <div className="col-12">
+              <div className="col-4">
+                {/* Book Ticket Button */}
                 <button className={`${styles.btn} `} onClick={handleBooking}>
-                  Book Ticket
+                  Book Ticket for ₹{result?.price || ""}
                 </button>
               </div>
             </div>
@@ -155,3 +182,4 @@ const BookTickets = () => {
   );
 };
 export default BookTickets;
+

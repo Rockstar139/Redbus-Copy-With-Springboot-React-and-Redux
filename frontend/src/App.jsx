@@ -13,11 +13,11 @@ function App() {
   const loginDefaults = useSelector((store) => store.loginDefaults);
   //if page refreshed we will check session for token as well
 
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]); // Runs every time the URL path changes
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]); // Runs every time the URL path changes
 
   /**
    * Effect to restore login state on refresh.
